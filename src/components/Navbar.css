@@ -1,0 +1,65 @@
+/* Navbar container */
+nav {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+  
+  /* Navbar list */
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navbar links */
+  nav ul li {
+    display: inline-block;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+  }
+  
+  /* Hover and active effects */
+  nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffdd57;
+    transform: translateY(-2px);
+  }
+  
+  /* Active link (optional, add 'active' class dynamically) */
+  nav ul li a.active {
+    background: rgba(255, 255, 255, 0.3);
+    color: #ffdd57;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      padding: 1rem;
+    }
+  
+    nav ul {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    nav ul li {
+      text-align: center;
+    }
+  }
+  

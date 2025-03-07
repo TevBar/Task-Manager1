@@ -1,0 +1,82 @@
+/* General typography & layout */
+:root {
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #2c3e50;
+  background-color: #f4f7f9;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Link styling */
+a {
+  font-weight: 600;
+  color: #007bff;
+  transition: color 0.2s ease-in-out;
+}
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Body layout */
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(to right, #ffffff, #f4f7f9);
+}
+
+/* Header styling */
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+}
+
+/* Button styles */
+button {
+  border-radius: 8px;
+  border: 2px solid transparent;
+  padding: 0.6em 1.5em;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+button:hover {
+  border-color: #0056b3;
+  background: linear-gradient(135deg, #0056b3, #004099);
+}
+button:focus,
+button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 91, 187, 0.5);
+}
+
+/* Light mode adjustments */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #007bff;
+  }
+  button {
+    background: #007bff;
+  }
+}
