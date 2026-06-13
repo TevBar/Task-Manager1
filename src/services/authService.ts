@@ -13,7 +13,7 @@ export const login = async () => {
 };
 
 export const logout = () => {
-  auth0.logout({ returnTo: window.location.origin });
+  auth0.logout({ logoutParams: { returnTo: window.location.origin } });
 };
 
 export const getUser = async () => {

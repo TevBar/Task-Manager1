@@ -33,13 +33,13 @@ const pageVariants = {
 };
 
 const pageTransition = {
-  type: "tween" as const,
-  ease: "anticipate" as const,
+  type: "tween",
+  ease: "anticipate",
   duration: 0.4
 };
 
 const App: React.FC = () => {
-  const { isLoading } = useAuth0();
+  const { isAuthenticated, isLoading } = useAuth0();
   const location = useLocation();
 
   if (isLoading) {
@@ -187,6 +187,14 @@ const App: React.FC = () => {
           />
         </Routes>
       </AnimatePresence>
+    </TaskProvider>
+  );
+};
+              <TaskDetails />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
     </TaskProvider>
   );
 };

@@ -8,7 +8,7 @@ const Register: React.FC = () => {
   return (
     <div>
       <h1>Register</h1>
-      <button onClick={() => loginWithRedirect({ screen_hint: "signup" })}>
+      <button onClick={() => loginWithRedirect({ authorizationParams: { screen_hint: "signup" } })}>
         Register with Auth0
       </button>
     </div>

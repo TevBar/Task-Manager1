@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTaskContext } from "../context/TaskContext"; // Import the custom hook to access tasks
 import { useNavigate, useParams } from "react-router-dom";
-import { Task } from "../types/task"; // Ensure that the Task type is correctly defined
 
 const EditTask: React.FC = () => {
   const { tasks, editTask } = useTaskContext(); // Access the context functions
@@ -28,7 +27,7 @@ const EditTask: React.FC = () => {
     if (title.trim() === "") return alert("Title is required");
 
     // Call the editTask function from context to update the task in state
-    editTask(id!, { title, description, completed: false, createdAt: new Date().toISOString() });
+    editTask(id!, { id: id!, title, description, completed: false, createdAt: new Date().toISOString() });
 
     // Redirect to the dashboard after editing
     navigate("/"); // Redirect to the dashboard or wherever you want

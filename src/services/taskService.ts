@@ -1,4 +1,6 @@
 // src/services/taskService.ts
+import { Task } from "../types/task";
+
 export const taskService = {
   getAllTasks: async () => {
     const response = await fetch("/api/tasks");
