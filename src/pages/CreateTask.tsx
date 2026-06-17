@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTaskContext } from "../context/TaskContext"; // Correct import
-import './createTask.css'
+import './CreateTask.css'
 
 const CreateTask: React.FC = () => {
   const { addTask } = useTaskContext(); // Using useTaskContext to get the addTask function
@@ -12,7 +12,7 @@ const CreateTask: React.FC = () => {
     if (title.trim() === "") return alert("Title is required");
 
     addTask({
-      id: Math.random().toString(36).substr(2, 9), // Generate a unique ID (could be better, such as using a UUID library)
+      id: Math.random().toString(36).slice(2, 11),
       title,
       description,
       completed: false,
