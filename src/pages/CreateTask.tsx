@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useTaskContext } from "../context/TaskContext"; // Correct import
-import './CreateTask.css'
+import { useTaskContext } from "../context/TaskContext";
+import './CreateTask.css';
 
 const CreateTask: React.FC = () => {
-  const { addTask } = useTaskContext(); // Using useTaskContext to get the addTask function
+  const { addTask } = useTaskContext();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -23,21 +23,32 @@ const CreateTask: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Task Title"
-        required
-      />
-      <textarea
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        placeholder="Task Description"
-      />
-      <button type="submit">Create Task</button>
-    </form>
+    <div className="create-task-container">
+      <h2>Create New Task</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="title">Title</label>
+          <input
+            id="title"
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="What needs to be done?"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="description">Description</label>
+          <textarea
+            id="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Add any details or notes..."
+          />
+        </div>
+        <button type="submit" className="submit-btn">Create Task</button>
+      </form>
+    </div>
   );
 };
 
