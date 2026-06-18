@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
-import { Task } from "../types/task"; // Assuming you have a Task type defined
+import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { Task } from "../types/task";
 
 interface TaskContextType {
   tasks: Task[];
@@ -11,24 +11,26 @@ interface TaskContextType {
 const TaskContext = createContext<TaskContextType | undefined>(undefined);
 
 export const TaskProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const saved = localStorage.getItem("tasks");
+    return saved ? JSON.parse(saved) : [];
+  });
 
-  // Function to add a task
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
   const addTask = (task: Task) => {
-    setTasks((prevTasks) => [...prevTasks, task]);
+    setTasks((prev) => [...prev, task]);
   };
 
-  // Function to delete a task
   const deleteTask = (id: string) => {
-    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+    setTasks((prev) => prev.filter((task) => task.id !== id));
   };
 
-  // Function to edit a task
   const editTask = (id: string, updatedTask: Task) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task.id === id ? { ...task, ...updatedTask } : task
-      )
+    setTasks((prev) =>
+      prev.map((task) => (task.id === id ? { ...task, ...updatedTask } : task))
     );
   };
 
@@ -39,7 +41,6 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   );
 };
 
-// Custom hook to use the task context
 export const useTaskContext = (): TaskContextType => {
   const context = useContext(TaskContext);
   if (!context) {

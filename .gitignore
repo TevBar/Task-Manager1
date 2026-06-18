@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# Auth files kept locally for future reference
+src/pages/Login.tsx
+src/pages/Register.tsx
+src/pages/Callback.tsx
+src/components/ProtectedRoute.tsx
+src/services/authService.ts
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
