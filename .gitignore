@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Backup/scratch files
+src/App_new.tsx
+src/App_backup.tsx
+
 # Auth files kept locally for future reference
 src/pages/Login.tsx
 src/pages/Register.tsx
